@@ -251,125 +251,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/Integers/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangyong">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="eagleyong">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/05/Integers/" itemprop="url">Integers</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-05T09:28:59+08:00">
-                2019-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -570,7 +451,7 @@
 <li><p>解决方案：递归</p>
 </li>
 </ul>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>  <img src="F:%5CBlog%5CHexo%5Csource_posts%5Cimg%5C29.jpg" alt></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>  <img src="/2019/06/28/leetCode-29-Divide-Two-Integers/F:%5CBlog%5CHexo%5Csource_posts%5Cimg%5C29.jpg" alt></p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>  两数相除，这里不允许用除法来算，第一思路就是直接用减法来求这个运算结果。我们在用减法来算这个运算结果之前，首先熟悉一下数在计算里面的存储，如下图所示（这里假设存储最大的数字是15）：</p>
 <table>
 <thead>
@@ -651,7 +532,7 @@
 <p>  依照这样的模式，Int是用四个字节存储，32bit，所表示的数的范围：-2147483648-2147483647。下面就来写我的第一次的代码如下：</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> dividend, <span class="keyword">int</span> divisor)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">int</span> sign = <span class="number">1</span>; <span class="comment">//记录符号位</span></span><br><span class="line">    <span class="keyword">if</span> (dividend &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//如果被除数小于0，符号位取反，被除数也取反</span></span><br><span class="line">        sign = opposite(sign);</span><br><span class="line">        dividend = opposite(dividend);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (divisor &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//除数小于0，符号位取反，除数取反</span></span><br><span class="line">        sign = opposite(sign);</span><br><span class="line">        divisor = opposite(divisor);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (divisor &lt;= dividend) &#123;</span><br><span class="line">        <span class="comment">//将除法转换为减法</span></span><br><span class="line">        ans = ans + <span class="number">1</span>;</span><br><span class="line">        dividend = dividend - divisor;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sign &gt; <span class="number">0</span> ? ans : opposite(ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">opposite</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//取反函数表达式</span></span><br><span class="line">    <span class="keyword">return</span> ~x + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>  <img src="C:%5CUsers%5Ceagle%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562231196677.png" alt="1562231196677"></p>
+<p>  <img src="/2019/06/28/leetCode-29-Divide-Two-Integers/C:%5CUsers%5Ceagle%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562231196677.png" alt="1562231196677"></p>
 <p>  为什么会出现这样的错误啦，这里还是拿-8来举例说明，因为-2147483648是int类型的最小负数。这是假设-8是int类型的最小数，那么-8在这个程序里面是如何来执行的呢？在熟悉这个程序的执行过程之前，我们先列举取反函数的输入输出（在-假设int类型表示的数的范围是-8~7范围类）：</p>
 <table>
 <thead>
@@ -705,9 +586,9 @@
 <p>  我们为什么不转化一下思维，既然计算机里面负数比正数多一个，我们可以把正数统统的转换为负数啦。我们为了提高程序的运行效率，我们这里会成倍的来减去除数。经过整理的代码如下：</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> dividend, <span class="keyword">int</span> divisor)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = -<span class="number">1</span>;  </span><br><span class="line">        <span class="keyword">int</span> sign = <span class="number">1</span>; <span class="comment">//记录符号位</span></span><br><span class="line">        <span class="keyword">if</span> (dividend &gt;<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//如果被除数大于0，符号位取反，被除数也取反</span></span><br><span class="line">            sign = opposite(sign);</span><br><span class="line">            dividend = opposite(dividend); &#125;</span><br><span class="line">        <span class="keyword">if</span> (divisor &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//除数大于0，符号位取反，除数取反</span></span><br><span class="line">            sign = opposite(sign);</span><br><span class="line">            divisor = opposite(divisor);</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="comment">//保留原来的被除数与除数</span></span><br><span class="line">        <span class="keyword">int</span> divisor_orgin=divisor;</span><br><span class="line">        <span class="keyword">int</span> dividend_orgin=dividend;</span><br><span class="line">        <span class="comment">//如果被除数大于除数</span></span><br><span class="line">        <span class="keyword">if</span>(dividend&gt;divisor)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        dividend-=divisor;</span><br><span class="line">        <span class="keyword">while</span> (dividend&lt;=divisor) &#123;</span><br><span class="line">        <span class="comment">//将除法转换为减法</span></span><br><span class="line">            ans = ans + ans;</span><br><span class="line">            divisor+=divisor;</span><br><span class="line">            dividend-=divisor;</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">int</span> b=ans+opposite(divide(dividend_orgin-divisor,divisor_orgin));</span><br><span class="line">        <span class="keyword">if</span>(b==Integer.MIN_VALUE)&#123;</span><br><span class="line">            <span class="keyword">if</span>(sign&gt;<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;  </span><br><span class="line">            <span class="keyword">if</span>(sign&gt;<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> opposite(b);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> b;&#125;   </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">opposite</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ~x+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>  <img src="C:%5CUsers%5Ceagle%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C122.png" alt></p>
+<p>  <img src="/2019/06/28/leetCode-29-Divide-Two-Integers/C:%5CUsers%5Ceagle%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C122.png" alt></p>
 <h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>  程序虽然通过了，下面问题还需再来思考：</p>
-<p>  <img src="C:%5CUsers%5Ceagle%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562251665351.png" alt="1562251665351"></p>
+<p>  <img src="/2019/06/28/leetCode-29-Divide-Two-Integers/C:%5CUsers%5Ceagle%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562251665351.png" alt="1562251665351"></p>
 <p>  这里后面用的递归程序，它会返回什么样的结果？这里还是举例来说明问题，假设整数范围是-32—31，这里举例：dividend=-17，divisor=3，按理预期结果就是-5。通过递归b=-4+opposite(divide(-5,-3)),而这里我们需要理解divide（-5，-3）的返回结果，这里我们可以继续来递归得出b=ans+opposite(divide(-2,-3)).这里就根据divide（-2，-3）=0推出b=-1,所以divide（-5，-3）最终返回结果会是1，所以这里需要对divide（-5，-3）取反。</p>
 <p>  理解的很含糊，我还是一种过程化的思考模式，所以理解这个问题，总想一步步的来用过程化解。但是这样理解会非常吃力，递归的运用还是需要再继续深入了解下去。你们应该有更好的能够知道何种情况下使用递归的方式吧，欢迎留言讨论！</p>
 
@@ -923,7 +804,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

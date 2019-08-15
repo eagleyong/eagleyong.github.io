@@ -127,6 +127,22 @@
 
 
 
+//������jquery�ٶȵ� cdn Դ��Ҳ���滻������
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ //Ҳ���滻������lazyloadԴ
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
+    <script type="text/javascript">
+      $(function() {  
+      //������ img ��ǩ����������        
+          $("img").lazyload({
+          //����ռλͼ��������ѡ����һ�� loading �ļ��ض���
+            placeholder:"/img/loading.gif",
+            //����Ч��
+              effect:"fadeIn"
+            });
+          });
+    </script>
+
   <title> | eagleyong</title>
   
 
